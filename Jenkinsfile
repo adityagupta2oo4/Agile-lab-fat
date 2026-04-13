@@ -1,17 +1,30 @@
 pipeline {
     agent any
+    
     tools {
+        // Ensure this name matches exactly what you set in Jenkins Tools
         maven 'Maven 3.x' 
     }
+
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                // Changed 'sh' to 'bat' for Windows compatibility
+                bat 'mvn clean compile'
             }
         }
+
         stage('Test') {
             steps {
-                sh 'mvn test'
+                // Changed 'sh' to 'bat'
+                bat 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                // Changed 'sh' to 'bat'
+                bat 'mvn package'
             }
         }
     }

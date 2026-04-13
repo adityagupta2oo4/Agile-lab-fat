@@ -1,9 +1,10 @@
 public class Voter {
-    String name;
-    int age;
-    String citizenship;
-    boolean hasValidID;
+    private String name;
+    private int age;
+    private String citizenship;
+    private boolean hasValidID;
 
+    // Constructor: Initializes the voter details
     public Voter(String name, int age, String citizenship, boolean hasValidID) {
         this.name = name;
         this.age = age;
@@ -11,10 +12,19 @@ public class Voter {
         this.hasValidID = hasValidID;
     }
 
+    // Business Logic: Determines eligibility and returns the specific reason if ineligible
     public String checkEligibility() {
-        if (age < 18) return "Ineligible: Underage.";
-        if (!citizenship.equalsIgnoreCase("Indian")) return "Ineligible: Not a citizen.";
-        if (!hasValidID) return "Ineligible: Invalid Voter ID.";
-        return "Eligible to vote.";
+        if (age < 18) {
+            return "Ineligible: Underage (Must be 18+).";
+        }
+        if (!citizenship.equalsIgnoreCase("Indian")) {
+            return "Ineligible: Not an Indian citizen.";
+        }
+        if (!hasValidID) {
+            return "Ineligible: Voter ID is invalid or missing.";
+        }
+        return "Eligible to vote!";
     }
+
+    public String getName() { return name; }
 }
