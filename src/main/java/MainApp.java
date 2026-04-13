@@ -18,7 +18,7 @@ public class MainApp {
         System.out.print("Does the voter have a valid ID? (true/false): ");
         boolean idStatus = scanner.nextBoolean();
 
-        // Create the Voter object using the input
+    
         Voter person = new Voter(name, age, citizen, idStatus);
 
         // Print the final result
